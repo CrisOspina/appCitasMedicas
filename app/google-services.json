@@ -1,0 +1,35 @@
+{
+  "project_info": {
+    "project_number": "156644611278",
+    "firebase_url": "https://appcitas-e6782.firebaseio.com",
+    "project_id": "appcitas-e6782",
+    "storage_bucket": "appcitas-e6782.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:156644611278:android:563e3b183b6ee4fd",
+        "android_client_info": {
+          "package_name": "com.example.appcitas"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvIoS05ay6ESB4O0nk_m8kvGqFlYu8AI8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "156644611278-qqr3o25ev5i74qk18asr9p3g8m47ov8k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
