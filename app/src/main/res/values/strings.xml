@@ -1,11 +1,15 @@
 <resources>
-    <string name="app_name">Citas Medicas</string>
-    <string name="username">Usuario</string>
-    <string name="pass">Contraseña</string>
-    <string name="ingresar">Ingresar</string>
-    <string name="registrar">Registrarse</string>
-    <string name="cedula">Cedula</string>
-
+<string name="app_name">Citas Medicas</string>
+<string name="user">Usuario</string>
+    <string name="correo">Correo</string>
+<string name="pass">Contraseña</string>
+<string name="ingresar">Ingresar</string>
+<string name="registrar">Registrarse</string>
+<string name="cedula">Cedula</string>
+    <string name="nombre">Nombre</string>
+    <string name="login">Iniciar sesión</string>
+    <string name="registro">Registrarse</string>
+    <string name="asignar">Asignar</string>
 
 
 </resources>
