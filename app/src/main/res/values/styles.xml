@@ -1,0 +1,21 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#3F51b5</item>
+        <item name="colorPrimaryDark">#303f9f</item>
+        <item name="colorAccent">#ff4081</item>
+    </style>
+    <style name="DialogTheme" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorAccent">#ff4081</item>
+    </style>
+
+    <style name="estiloBoton" parent="Theme.AppCompat.Light">
+        <item name="colorButtonNormal">@color/colorPrimaryDark</item>
+        <item name="colorControlHighlight">@color/colorPrimary</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+</resources>
+
