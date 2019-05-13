@@ -76,6 +76,7 @@ public class AsignacionCitaActivity extends AppCompatActivity
     //Spinner para los especialistas y medicos
     public  void spinnerEspecialista()
     {
+
         spEspecialista = findViewById(R.id.spEspecialista);
 
         //Spinner especialista
@@ -183,7 +184,7 @@ public class AsignacionCitaActivity extends AppCompatActivity
         tvCorreo      = findViewById(R.id.tvCorreo); tvCorreo.setText(correo);
         tvCedula      = findViewById(R.id.tvCedula); tvCedula.setText(cedula);
 
-        //Registrar en la BD firebase colección citas
+        //Registrar en la BD firebase - colección Citas
         user.put("Fecha", fecha);
         user.put("Correo", correo);
         user.put("Cedula", cedula);
