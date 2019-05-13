@@ -106,7 +106,6 @@ public class RegistroFragment extends Fragment {
         btnRegistro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(),"Fragment Registrar", Toast.LENGTH_SHORT).show();
 
                 final String cedula = etCedula.getText().toString();
                 final String correo = etCorreo.getText().toString();

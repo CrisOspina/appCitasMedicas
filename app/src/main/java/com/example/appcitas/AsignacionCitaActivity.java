@@ -2,19 +2,26 @@ package com.example.appcitas;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.annotation.NonNull;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.appcitas.fragments.AsignacionCitaFragment;
+import com.example.appcitas.fragments.ConsultarCitaFragment;
+import com.example.appcitas.fragments.LoginFragment;
+import com.example.appcitas.fragments.RegistroFragment;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentReference;
@@ -25,13 +32,19 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
-public class AsignacionCitaActivity extends AppCompatActivity
+public class AsignacionCitaActivity extends AppCompatActivity implements AsignacionCitaFragment.OnFragmentInteractionListener, ConsultarCitaFragment.OnFragmentInteractionListener
 {
+    /*
     TextView tvCorreo, tvCedula;
     Spinner spEspecialista, spEps;
     EditText etFecha;
     DatePickerDialog datePickerDialog;
     FirebaseFirestore db;
+    */
+
+    Button btnAsignarC, btnConsultar;
+    AsignacionCitaFragment AsignacionCitaFragment;
+    ConsultarCitaFragment ConsultarCitaFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -39,6 +52,15 @@ public class AsignacionCitaActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_asignacion_cita);
 
+        AsignacionCitaFragment = new AsignacionCitaFragment();
+        ConsultarCitaFragment = new ConsultarCitaFragment();
+
+        btnAsignarC = findViewById(R.id.btnAsignarC);
+        btnConsultar = findViewById(R.id.btnConsultar);
+
+        getSupportFragmentManager().beginTransaction().add(R.id.frameLayoutContainer, AsignacionCitaFragment).commit();
+
+        /*
         etFecha = findViewById(R.id.etFecha);
         db = FirebaseFirestore.getInstance();
 
@@ -52,9 +74,30 @@ public class AsignacionCitaActivity extends AppCompatActivity
         spinnerEspecialista();
 
         //Lista de EPS
-        spinnerEPS();
+        spinnerEPS();*/
     }
 
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
+    }
+
+    public void cambiarFragments(View view) {
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        switch (view.getId()){
+            case R.id.btnAsignar:
+                fragmentTransaction.replace(R.id.frameLayoutContainer,AsignacionCitaFragment).commit();
+                break;
+            case R.id.btnConsultar:
+                fragmentTransaction.replace(R.id.frameLayoutContainer,ConsultarCitaFragment).commit();
+                break;
+        }
+    }
+
+
+
+
+    /*
     //Recibir correo
     public void recibirCorreo()
     {
@@ -106,6 +149,7 @@ public class AsignacionCitaActivity extends AppCompatActivity
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
+
             }
         });
     }
@@ -208,5 +252,5 @@ public class AsignacionCitaActivity extends AppCompatActivity
                         Toast.makeText(AsignacionCitaActivity.this, "Error al registrar", Toast.LENGTH_SHORT).show();
                     }
                 });
-    }
+    }*/
 }

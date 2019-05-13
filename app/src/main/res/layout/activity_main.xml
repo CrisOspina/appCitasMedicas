@@ -8,7 +8,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     tools:context=".MainActivity"
-    android:background="@color/fondo">
+    android:background="@drawable/fondosplash">
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline1"
@@ -59,15 +59,15 @@
 
         <Button
             android:id="@+id/btnLogin"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/login"
-            android:onClick="cambiarFragment"/>
+            android:onClick="cambiarFragment"
+            android:text="@string/login" />
 
         <Button
             android:id="@+id/btnRegistrar"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="cambiarFragment"
