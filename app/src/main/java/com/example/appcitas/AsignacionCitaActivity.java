@@ -42,7 +42,7 @@ public class AsignacionCitaActivity extends AppCompatActivity implements Asignac
     FirebaseFirestore db;
     */
 
-    Button btnAsignarC, btnConsultar;
+    Button btnAsignarC, btnConsultarC;
     AsignacionCitaFragment AsignacionCitaFragment;
     ConsultarCitaFragment ConsultarCitaFragment;
 
@@ -56,7 +56,7 @@ public class AsignacionCitaActivity extends AppCompatActivity implements Asignac
         ConsultarCitaFragment = new ConsultarCitaFragment();
 
         btnAsignarC = findViewById(R.id.btnAsignarC);
-        btnConsultar = findViewById(R.id.btnConsultar);
+        btnConsultarC = findViewById(R.id.btnConsultarC);
 
         getSupportFragmentManager().beginTransaction().add(R.id.frameLayoutContainer2, AsignacionCitaFragment).commit();
 
@@ -88,7 +88,7 @@ public class AsignacionCitaActivity extends AppCompatActivity implements Asignac
             case R.id.btnAsignarC:
                 fragmentTransaction.replace(R.id.frameLayoutContainer2,AsignacionCitaFragment).commit();
                 break;
-            case R.id.btnConsultar:
+            case R.id.btnConsultarC:
                 fragmentTransaction.replace(R.id.frameLayoutContainer2,ConsultarCitaFragment).commit();
                 break;
         }

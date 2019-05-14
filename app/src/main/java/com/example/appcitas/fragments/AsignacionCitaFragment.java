@@ -208,7 +208,6 @@ public class AsignacionCitaFragment extends Fragment {
                 });
             }
 
-
         });
 
         //Calendario para elegir la fecha de la cita

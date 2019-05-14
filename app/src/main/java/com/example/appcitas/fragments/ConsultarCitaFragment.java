@@ -3,12 +3,25 @@ package com.example.appcitas.fragments;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
+import com.example.appcitas.Adapter_datos;
 import com.example.appcitas.R;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -27,6 +40,11 @@ public class ConsultarCitaFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    ArrayList<String> listDatos;
+    RecyclerView recycler;
+    Button btnConsultar;
+    FirebaseFirestore db;
+    View view;
 
     private OnFragmentInteractionListener mListener;
 
@@ -65,7 +83,45 @@ public class ConsultarCitaFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_consultar_cita, container, false);
+        view = inflater.inflate(R.layout.fragment_consultar_cita, container, false);
+        db = FirebaseFirestore.getInstance();
+        btnConsultar = view.findViewById(R.id.btnConsultarC);
+
+        recycler = view.findViewById(R.id.recyclerId);
+
+        recycler.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL,false));
+
+        //Busqueda'
+        db.collection("Citas")
+                .addSnapshotListener(new EventListener<QuerySnapshot>()
+                {
+                    @Override
+                    public void onEvent(@Nullable QuerySnapshot value,
+                                        @Nullable FirebaseFirestoreException e)
+                    {
+                        if (e != null)
+                        {
+                            Log.w("veg", "Listen failed.", e);
+                            return;
+                        }
+                        listDatos = new ArrayList<String>();
+                        //List<String> productos = new ArrayList<>();
+                        for (QueryDocumentSnapshot doc : value)
+                        {
+                            if (doc.get("Cedula") != null || doc.get("Correo") != null || doc.get("Fecha") != null)
+                            {
+                                //Listar todos
+                                listDatos.add(doc.getData().toString());
+
+                                Adapter_datos adapter = new Adapter_datos(listDatos);
+                                recycler.setAdapter(adapter);
+                            }
+                        }
+                        Log.d("veg", "Cédula y correo': " + listDatos);
+                    }
+                });
+
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
