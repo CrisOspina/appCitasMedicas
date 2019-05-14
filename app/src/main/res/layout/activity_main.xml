@@ -61,6 +61,7 @@
             android:id="@+id/btnLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:theme="@style/estiloBoton"
             android:layout_weight="1"
             android:onClick="cambiarFragment"
             android:text="@string/login" />
@@ -68,6 +69,7 @@
         <Button
             android:id="@+id/btnRegistrar"
             android:layout_width="match_parent"
+            android:theme="@style/estiloBoton"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="cambiarFragment"
