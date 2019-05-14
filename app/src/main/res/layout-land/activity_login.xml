@@ -9,24 +9,6 @@ android:fitsSystemWindows="true"
 tools:context=".LoginActivity"
 android:background="@color/fondo">
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:weightSum="1"
-    >
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="0.6">
-
-        <ImageView
-            android:id="@+id/logo"
-            android:layout_width="223dp"
-            android:layout_height="175dp"
-            android:layout_centerInParent="true"
-            android:background="@drawable/citamedica" />
-    </RelativeLayout>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -38,12 +20,14 @@ android:background="@color/fondo">
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="32dp"
+            android:layout_marginTop="40dp"
+            android:padding="40dp"
             >
 
             <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
+                android:layout_width="500dp"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_margin="10dp"
                 android:hint="@string/correo">
 
@@ -56,8 +40,9 @@ android:background="@color/fondo">
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
+                android:layout_width="500dp"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_margin="10dp"
                 android:hint="@string/pass"
                 app:errorEnabled="true">
@@ -71,9 +56,10 @@ android:background="@color/fondo">
 
             <Button
                 android:id="@+id/btnIngresar"
-                android:layout_margin="10dp"
+                android:layout_margin="20dp"
                 android:onClick="ingresar"
-                android:layout_width="match_parent"
+                android:layout_width="250dp"
+                android:layout_gravity="center"
                 android:layout_height="wrap_content"
                 android:text="@string/ingresar"
                 android:theme="@style/estiloBoton"
@@ -82,6 +68,5 @@ android:background="@color/fondo">
         </LinearLayout>
     </ScrollView>
 
-</LinearLayout>
 
 </android.support.design.widget.CoordinatorLayout>
