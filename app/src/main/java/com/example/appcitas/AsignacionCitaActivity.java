@@ -58,7 +58,7 @@ public class AsignacionCitaActivity extends AppCompatActivity implements Asignac
         btnAsignarC = findViewById(R.id.btnAsignarC);
         btnConsultar = findViewById(R.id.btnConsultar);
 
-        getSupportFragmentManager().beginTransaction().add(R.id.frameLayoutContainer, AsignacionCitaFragment).commit();
+        getSupportFragmentManager().beginTransaction().add(R.id.frameLayoutContainer2, AsignacionCitaFragment).commit();
 
         /*
         etFecha = findViewById(R.id.etFecha);
@@ -85,11 +85,11 @@ public class AsignacionCitaActivity extends AppCompatActivity implements Asignac
     public void cambiarFragments(View view) {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         switch (view.getId()){
-            case R.id.btnAsignar:
-                fragmentTransaction.replace(R.id.frameLayoutContainer,AsignacionCitaFragment).commit();
+            case R.id.btnAsignarC:
+                fragmentTransaction.replace(R.id.frameLayoutContainer2,AsignacionCitaFragment).commit();
                 break;
             case R.id.btnConsultar:
-                fragmentTransaction.replace(R.id.frameLayoutContainer,ConsultarCitaFragment).commit();
+                fragmentTransaction.replace(R.id.frameLayoutContainer2,ConsultarCitaFragment).commit();
                 break;
         }
     }

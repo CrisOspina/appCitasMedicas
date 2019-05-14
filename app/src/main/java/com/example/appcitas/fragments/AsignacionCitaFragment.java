@@ -19,6 +19,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.appcitas.AsignacionCitaActivity;
 import com.example.appcitas.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -100,7 +101,7 @@ public class AsignacionCitaFragment extends Fragment {
         btnAsignarC = view.findViewById(R.id.btnAsignarC);
         db = FirebaseFirestore.getInstance();
 
-        btnAsignarC.setOnClickListener(new View.OnClickListener() {
+        btnAsignar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -116,30 +117,28 @@ public class AsignacionCitaFragment extends Fragment {
                 //Lista de EPS
                 spinnerEPS();
 
-
             }
             //Recibir correo
             public void recibirCorreo()
             {
-                //Bundle extra  = getIntent().getExtras();
-                //String correo = extra.getString("correo");
-                //tvcorreo      = view.findViewById(R.id.tvCorreo);
-                //tvCorreo.setText(correo);
+                Bundle extra  = getActivity().getIntent().getExtras();
+                String correo = extra.getString("correo");
+                tvCorreo      = view.findViewById(R.id.tvCorreo);
+                tvCorreo.setText(correo);
             }
 
             //Recibir cedula
             public void recibirCedula()
             {
-                //Bundle extra  = getIntent().getExtras();
-                //String cedula = extra.getString("cedula");
-                //tvCedula      = view.findViewById(R.id.tvCedula);
-                //tvCedula.setText(cedula);
+                Bundle extra  = getActivity().getIntent().getExtras();
+                String cedula = extra.getString("cedula");
+                tvCedula      = view.findViewById(R.id.tvCedula);
+                tvCedula.setText(cedula);
             }
 
             //Spinner para los especialistas y medicos
-            public  void spinnerEspecialista()
+            public void spinnerEspecialista()
             {
-
                 spEspecialista = view.findViewById(R.id.spEspecialista);
 
                 //Spinner especialista
@@ -154,7 +153,7 @@ public class AsignacionCitaFragment extends Fragment {
                 lo_tipos.add("Ortopedista");
 
                 //Se crea adaptador
-                ArrayAdapter lo_adp_tipos = new ArrayAdapter(getContext(), android.R.layout.simple_spinner_dropdown_item, lo_tipos);
+                ArrayAdapter lo_adp_tipos = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_dropdown_item, lo_tipos);
                 spEspecialista.setAdapter(lo_adp_tipos);
 
                 //Identificar cuando es presionado en alguno de los elementos.
@@ -162,7 +161,7 @@ public class AsignacionCitaFragment extends Fragment {
                     @Override
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                         //Marca posición sobre que elemento hemos seleccionado.
-                        String lo_tipos = (String) spEspecialista.getAdapter().getItem(position);
+                        //String lo_tipos = (String) spEspecialista.getAdapter().getItem(position);
                         //Mostrar mensaje
                         //Toast.makeText(Main4Activity_registros.this, "Seleccionaste: " + lo_tipos, Toast.LENGTH_LONG).show();
                     }
@@ -175,7 +174,7 @@ public class AsignacionCitaFragment extends Fragment {
             }
 
             //Spinner para las EPS
-            public  void spinnerEPS()
+            public void spinnerEPS()
             {
                 spEps = view.findViewById(R.id.spEps);
 
@@ -189,7 +188,7 @@ public class AsignacionCitaFragment extends Fragment {
                 lo_tiposE.add("Salud total");
 
                 //Se crea adaptador
-                ArrayAdapter lo_adp_tiposE = new ArrayAdapter(getContext(), android.R.layout.simple_spinner_dropdown_item, lo_tiposE);
+                ArrayAdapter lo_adp_tiposE = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_dropdown_item, lo_tiposE);
                 spEps.setAdapter(lo_adp_tiposE);
 
                 //Identificar cuando es presionado en alguno de los elementos.
@@ -197,7 +196,7 @@ public class AsignacionCitaFragment extends Fragment {
                     @Override
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                         //Marca posición sobre que elemento hemos seleccionado.
-                        String lo_tiposE = (String) spEps.getAdapter().getItem(position);
+                        //String lo_tiposE = (String) spEps.getAdapter().getItem(position);
                         //Mostrar mensaje
                         //Toast.makeText(Main4Activity_registros.this, "Seleccionaste: " + lo_tipos, Toast.LENGTH_LONG).show();
                     }
